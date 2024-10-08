@@ -1,17 +1,16 @@
 // Questão 7
+
 package main
 
 import (
 	"fmt"
 )
 
-// Escola representa uma instituição de ensino
 type Escola struct {
 	Nome        string
 	Professores []*Professor
 }
 
-// AdicionarProfessor adiciona um professor à escola
 func (e *Escola) AdicionarProfessor(professor *Professor) {
 	for _, p := range e.Professores {
 		if p == professor {
@@ -22,7 +21,6 @@ func (e *Escola) AdicionarProfessor(professor *Professor) {
 	professor.AdicionarEscola(e)
 }
 
-// RemoverProfessor remove um professor da escola
 func (e *Escola) RemoverProfessor(professor *Professor) {
 	for i, p := range e.Professores {
 		if p == professor {
@@ -33,7 +31,6 @@ func (e *Escola) RemoverProfessor(professor *Professor) {
 	}
 }
 
-// ListarProfessores retorna uma lista com os nomes dos professores
 func (e *Escola) ListarProfessores() []string {
 	nomes := make([]string, len(e.Professores))
 	for i, p := range e.Professores {
@@ -42,13 +39,11 @@ func (e *Escola) ListarProfessores() []string {
 	return nomes
 }
 
-// Professor representa um professor
 type Professor struct {
 	Nome    string
 	Escolas []*Escola
 }
 
-// AdicionarEscola adiciona uma escola ao professor
 func (p *Professor) AdicionarEscola(escola *Escola) {
 	for _, e := range p.Escolas {
 		if e == escola {
@@ -58,7 +53,6 @@ func (p *Professor) AdicionarEscola(escola *Escola) {
 	p.Escolas = append(p.Escolas, escola)
 }
 
-// RemoverEscola remove uma escola do professor
 func (p *Professor) RemoverEscola(escola *Escola) {
 	for i, e := range p.Escolas {
 		if e == escola {
@@ -68,7 +62,6 @@ func (p *Professor) RemoverEscola(escola *Escola) {
 	}
 }
 
-// ListarEscolas retorna uma lista com os nomes das escolas
 func (p *Professor) ListarEscolas() []string {
 	nomes := make([]string, len(p.Escolas))
 	for i, e := range p.Escolas {
@@ -93,4 +86,3 @@ func main() {
 	fmt.Printf("Escolas onde %s leciona: %v\n", prof1.Nome, prof1.ListarEscolas())
 	fmt.Printf("Escolas onde %s leciona: %v\n", prof2.Nome, prof2.ListarEscolas())
 }
-

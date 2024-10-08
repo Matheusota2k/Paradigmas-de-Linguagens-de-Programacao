@@ -1,69 +1,58 @@
 // Questão 10, 11, 12 e 13
+
 package main
 
 import (
 	"fmt"
 )
 
-// Calculadora representa uma calculadora simples
 type Calculadora struct{}
 
-// SomarDois soma dois números
 func (c *Calculadora) SomarDois(a, b int) int {
 	return a + b
 }
 
-// SomarTres soma três números
 func (c *Calculadora) SomarTres(a, b, c int) int {
 	return a + b + c
 }
 
-// Funcionario é uma interface para diferentes tipos de funcionários
 type Funcionario interface {
 	CalcularSalario() float64
 	Nome() string
 }
 
-// FuncionarioHorista representa um funcionário que recebe por hora
 type FuncionarioHorista struct {
 	nome             string
 	horasTrabalhadas float64
 	valorHora        float64
 }
 
-// CalcularSalario calcula o salário do funcionário horista
 func (f *FuncionarioHorista) CalcularSalario() float64 {
 	return f.horasTrabalhadas * f.valorHora
 }
 
-// Nome retorna o nome do funcionário horista
 func (f *FuncionarioHorista) Nome() string {
 	return f.nome
 }
 
-// FuncionarioAssalariado representa um funcionário que recebe salário fixo
 type FuncionarioAssalariado struct {
 	nome          string
 	salarioMensal float64
 }
 
-// CalcularSalario retorna o salário do funcionário assalariado
 func (f *FuncionarioAssalariado) CalcularSalario() float64 {
 	return f.salarioMensal
 }
 
-// Nome retorna o nome do funcionário assalariado
 func (f *FuncionarioAssalariado) Nome() string {
 	return f.nome
 }
 
-// Produto representa um produto com nome e preço
 type Produto struct {
 	Nome  string
 	Preco float64
 }
 
-// SomarProdutos soma dois produtos
 func SomarProdutos(p1, p2 Produto) Produto {
 	return Produto{
 		Nome:  fmt.Sprintf("%s + %s", p1.Nome, p2.Nome),
@@ -71,10 +60,8 @@ func SomarProdutos(p1, p2 Produto) Produto {
 	}
 }
 
-// Matematica contém funções matemáticas
 type Matematica struct{}
 
-// Fatorial calcula o fatorial de um número
 func (m *Matematica) Fatorial(n int) (int, error) {
 	if n < 0 {
 		return 0, fmt.Errorf("o fatorial não está definido para números negativos")

@@ -1,18 +1,17 @@
 // Questão 3 e 15
+
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
-// ContaBancaria representa uma conta bancária
 type ContaBancaria struct {
 	titular string
 	saldo   float64
 }
 
-// NovoContaBancaria cria uma nova conta bancária
 func NovoContaBancaria(titular string, saldoInicial float64) *ContaBancaria {
 	return &ContaBancaria{
 		titular: titular,
@@ -20,17 +19,14 @@ func NovoContaBancaria(titular string, saldoInicial float64) *ContaBancaria {
 	}
 }
 
-// Titular retorna o titular da conta
 func (c *ContaBancaria) Titular() string {
 	return c.titular
 }
 
-// Saldo retorna o saldo da conta
 func (c *ContaBancaria) Saldo() float64 {
 	return c.saldo
 }
 
-// Depositar adiciona um valor ao saldo da conta
 func (c *ContaBancaria) Depositar(valor float64) bool {
 	if valor > 0 {
 		c.saldo += valor
@@ -39,7 +35,6 @@ func (c *ContaBancaria) Depositar(valor float64) bool {
 	return false
 }
 
-// Sacar retira um valor do saldo da conta
 func (c *ContaBancaria) Sacar(valor float64) error {
 	if valor > 0 {
 		if c.saldo >= valor {

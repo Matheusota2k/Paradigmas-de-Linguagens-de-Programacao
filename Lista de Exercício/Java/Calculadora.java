@@ -1,3 +1,5 @@
+// Questões 10, 11, 12 e 13 
+
 package ListaDeExercicio.Java;
 
 public class Calculadora {
